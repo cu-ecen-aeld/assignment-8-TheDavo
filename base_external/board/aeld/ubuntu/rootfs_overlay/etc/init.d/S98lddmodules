@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# This script loads the scull driver, the faulty module, and the hello module
+# Similar setup to the start-stop-daemon script used for aesdsocket daemon
+# NOTE: use chmod +x S98lddmodules to make this executable when running qemu
+
+case "$1" in
+	start)
+		echo "Starting/loading scull, faulty, and hello modules"
+		scull_load
+		module_load faulty
+		modprobe hello
+		;;
+	stop)
+		echo "Ending/unloading scull, faulty, and hello modules"
+		rmmod hello
+		module_unload faulty
+		scull_unload
+		;;
+	*)
+		echo "Usage: $0 {start|stop}"
+
+	exit 1
+esac
+
+exit 0

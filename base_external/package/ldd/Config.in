@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_LDD
+	bool "ldd"
+	help
+		Includes drivers from the textbook "Linux Device Drivers" such as scull
