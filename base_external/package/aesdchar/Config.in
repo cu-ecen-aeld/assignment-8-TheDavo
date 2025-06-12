@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_AESDCHAR
+	bool "aesdchar"
+	help
+		Character device driver to test circular buffer implementation.

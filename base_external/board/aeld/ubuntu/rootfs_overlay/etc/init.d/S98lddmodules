@@ -6,6 +6,8 @@
 
 case "$1" in
 	start)
+		echo "loading aesdchar device driver"
+		aesdchar_load
 		echo "Starting/loading scull, faulty, and hello modules"
 		scull_load
 		module_load faulty
@@ -16,6 +18,8 @@ case "$1" in
 		rmmod hello
 		module_unload faulty
 		scull_unload
+		echo "unloading aesdchar device driver"
+		aesdchar_unload
 		;;
 	*)
 		echo "Usage: $0 {start|stop}"
